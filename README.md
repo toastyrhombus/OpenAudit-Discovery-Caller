@@ -8,5 +8,5 @@ As usual, make sure you secure read access to any file that contains sensitive i
 
 * Configure the username and password in the python file.
 * Call the script with the following syntax:
-** OpenAudit-Discovery-Caller.py -i <ID of discovery> <Protocol + FQDN of OpenAudit server. Example: http://my-oa-server.com>
+  * `OpenAudit-Discovery-Caller.py -i <ID of discovery> <Protocol + FQDN of OpenAudit server. Example: http://my-oa-server.com>`
 * Script will raise an error if a HTTP response code of 4xx or 5xx is encountered.
