@@ -13,16 +13,16 @@ def main(argv):
 
     #logon
     url = f'{ServerName}{LogonPage}'
-    session = requests.session()
-    response = session.post(url, data={'username':OpenAuditUsername, 'password':OpenAuditPassword})
-    CheckHTTPError(response)
+    with requests.session() as session:
+        response = session.post(url, data={'username':OpenAuditUsername, 'password':OpenAuditPassword})
+        CheckHTTPError(response)
 
-    #call discovery
-    url = f'{ServerName}{DiscoveryPage}/{DiscoveryID}'
-    payload = {'action':'execute'}
-    response = session.get(url, params=payload)
-    CheckHTTPError(response)
-    print(f'[INFO] Successfully called OpenAudit discovery {DiscoveryID}')
+        #call discovery
+        url = f'{ServerName}{DiscoveryPage}/{DiscoveryID}'
+        payload = {'action':'execute'}
+        response = session.get(url, params=payload)
+        CheckHTTPError(response)
+        print(f'[INFO] Successfully called OpenAudit discovery {DiscoveryID}')
 
 #region Function definitions
 def CheckHTTPError(response: requests.Response):
